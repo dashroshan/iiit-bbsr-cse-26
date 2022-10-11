@@ -38,9 +38,9 @@ router.get(
 // For google redirection handling
 router.get(
     "/google/callback",
-    passport.authenticate("google", { failureRedirect: "http://localhost:3000?afterLogging=true&iiitDomain=false" }),
+    passport.authenticate("google", { failureRedirect: `${process.env.FRONTEND}?afterLogging=true&iiitDomain=false` }),
     (req, res) => {
-        res.redirect("http://localhost:3000?afterLogging=true&iiitDomain=true");
+        res.redirect(`${process.env.FRONTEND}??afterLogging=true&iiitDomain=true`);
     }
 );
 

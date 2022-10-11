@@ -24,7 +24,7 @@ mongoose.connect(process.env.MONGO_URI, {
 require('./config/passport')(passport);
 
 // Middleware
-app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+app.use(cors({ credentials: true, origin: process.env.FRONTEND }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
@@ -42,4 +42,4 @@ app.use(passport.session());
 app.use('/auth', require('./routes/auth'));
 
 // Start server
-app.listen(PORT, console.log(`listening at ${PORT}`));
+app.listen(PORT, console.log(`Server started on port ${PORT}`));
