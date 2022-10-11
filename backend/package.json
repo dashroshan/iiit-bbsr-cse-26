@@ -1,0 +1,19 @@
+{
+    "name": "cse-26-backend",
+    "description": "Backend server for IIIT BBSR CSE'26 site",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "license": "ISC",
+    "dependencies": {
+        "connect-mongo": "^3.2.0",
+        "cors": "^2.8.5",
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "express-session": "^1.17.1",
+        "mongoose": "^5.11.14",
+        "passport": "^0.4.1",
+        "passport-google-oauth20": "^2.0.0"
+    }
+}
