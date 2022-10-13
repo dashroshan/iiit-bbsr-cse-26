@@ -1,7 +1,35 @@
 .helloWrap {
-    height: 100vh;
+    height: 80vh;
     width: 100vw;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.helloWrap::before {
+    content: "";
+    position: absolute;
+    margin: 0px auto;
+    left: 0;
+    filter: brightness(0.4) sepia(1) hue-rotate(205deg) saturate(8);
+    background-image: url('../assets/grid.svg');
+    opacity: 0.2;
+    mask-image: radial-gradient(70% 80% at 50% 50%, black 40%, transparent 70%);
+    width: 100%;
+    height: 80%;
+    z-index: -1;
+}
+
+.helloWrap::after {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgb(0, 73, 255) 0%, rgb(255, 105, 185) 100%);
+    opacity: 0.2;
+    z-index: -2;
+    mask-image: radial-gradient(70% 80% at 50% 50%, black -40%, transparent 60%);
 }

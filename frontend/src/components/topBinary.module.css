@@ -1,0 +1,8 @@
+.binary {
+    white-space: nowrap;
+    overflow: hidden;
+    text-shadow: none;
+    opacity: 0.3;
+    font-size: 0.6rem;
+    mask-image: radial-gradient(70% 500% at 50% 50%, black 40%, transparent 65%);
+}

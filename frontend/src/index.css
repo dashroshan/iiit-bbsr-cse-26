@@ -1,13 +1,29 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+    font-family: 'CustomFonts';
+    font-weight: bold;
+    size-adjust: 250%;
+    src: url('./assets/fonts/vanguard.woff2') format('woff2');
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+    font-family: 'CustomFonts';
+    font-weight: normal;
+    size-adjust: 120%;
+    src: url('./assets/fonts/JetBrainsMono-SemiBold.woff2') format('woff2');
+}
+
+body {
+    margin: 0;
+    font-family: 'CustomFonts';
+    text-transform: uppercase;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: url('./assets/grains.png') rgb(23, 15, 30);
+    color: rgb(229, 225, 230);
+    text-shadow: rgb(255 215 77 / 60%) -1px -1px 6px, rgb(124 127 255 / 60%) 1px 1px 6px;
+}
+
+.App {
+    max-width: 100vw;
+    overflow: hidden;
 }
