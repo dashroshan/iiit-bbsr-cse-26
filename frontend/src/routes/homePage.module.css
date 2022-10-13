@@ -1,5 +1,5 @@
 .helloWrap {
-    height: 80vh;
+    height: 70vh;
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -32,4 +32,8 @@
     opacity: 0.2;
     z-index: -2;
     mask-image: radial-gradient(70% 80% at 50% 50%, black -40%, transparent 60%);
+}
+
+p {
+    margin: 0 1rem;
 }

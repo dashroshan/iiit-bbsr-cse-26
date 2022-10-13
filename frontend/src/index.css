@@ -8,7 +8,7 @@
 @font-face {
     font-family: 'CustomFonts';
     font-weight: normal;
-    size-adjust: 120%;
+    size-adjust: 110%;
     src: url('./assets/fonts/JetBrainsMono-SemiBold.woff2') format('woff2');
 }
 

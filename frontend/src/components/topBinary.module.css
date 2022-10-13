@@ -3,6 +3,8 @@
     overflow: hidden;
     text-shadow: none;
     opacity: 0.3;
-    font-size: 0.6rem;
+    font-size: 0.7rem;
     mask-image: radial-gradient(70% 500% at 50% 50%, black 40%, transparent 65%);
+    position: relative;
+    z-index: 10;
 }
