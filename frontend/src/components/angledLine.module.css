@@ -1,0 +1,18 @@
+.angledLine {
+    max-width: 1312px;
+    height: 24px;
+    margin-right: auto;
+    margin-bottom: 64px;
+    margin-left: auto;
+    background: url('../assets/repeater.svg');
+}
+
+.angledLineWrap {
+    padding: 0 64px;
+}
+
+@media (max-width: 600px) {
+    .angledLineWrap {
+        padding: 0 24px;
+    }
+}
