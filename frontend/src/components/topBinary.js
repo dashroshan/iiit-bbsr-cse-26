@@ -22,8 +22,11 @@ export default function TopBinary() {
     }, []);
 
     return (
-        <div className={classes.binary}>
-            {binaryStr}
+        <div className={classes.binaryWrap}>
+            <div className={classes.binary}>
+                {binaryStr}
+            </div>
+            <div className={classes.topSpace}></div>
         </div>
     );
 }
