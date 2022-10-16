@@ -40,7 +40,7 @@ router.get(
     "/google/callback",
     passport.authenticate("google", { failureRedirect: `${process.env.FRONTEND}?afterLogging=true&iiitDomain=false` }),
     (req, res) => {
-        res.redirect(`${process.env.FRONTEND}??afterLogging=true&iiitDomain=true`);
+        res.redirect(`${process.env.FRONTEND}?afterLogging=true&iiitDomain=true`);
     }
 );
 

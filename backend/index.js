@@ -39,7 +39,12 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Routes
-app.use('/auth', require('./routes/auth'));
+app.use('/api/auth', require('./routes/auth'));
+
+// Frontend site
+const rootPath = __dirname.substring(0, __dirname.length - 8);
+app.use(express.static(rootPath + '/frontend/build'));
+app.get('*', (req, res) => res.sendFile(rootPath + '/frontend/build/index.html'));
 
 // Start server
 app.listen(PORT, console.log(`Server started on port ${PORT}`));
