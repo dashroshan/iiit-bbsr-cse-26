@@ -1,0 +1,33 @@
+.wrap {
+    --gap: 40px;
+    display: flex;
+    gap: var(--gap);
+    overflow: hidden;
+    width: 100%;
+    user-select: none;
+    font-weight: bold;
+    font-size: 3.5rem;
+}
+
+.content {
+    display: flex;
+    flex-shrink: 0;
+    gap: var(--gap);
+    justify-content: space-around;
+    min-width: 100%;
+    margin: 0;
+    margin-top: -40px;
+    padding: 0;
+    list-style: none outside none;
+    animation: 60s linear 0s infinite normal forwards running anim;
+}
+
+@keyframes anim {
+    0% {
+        transform: translateX(0px);
+    }
+
+    100% {
+        transform: translateX(calc(-100% - var(--gap)));
+    }
+}
