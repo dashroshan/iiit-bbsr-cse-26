@@ -22,7 +22,7 @@ export default function NavBar() {
             </div>
             <nav className={classes.navBar}>
                 <div className={classes.logoWrap}>
-                    <span className={classes.logo}>CSE SITE</span>
+                    <span className={classes.logo}>SITE TITLE</span>
                 </div>
                 {isSmallScreen ?
                     <div className={classes.items}>
