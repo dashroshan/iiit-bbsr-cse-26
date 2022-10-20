@@ -1,0 +1,6 @@
+{
+    "name": "cse-26",
+    "scripts": {
+        "start": "pm2 delete cse && cd frontend && npm run build && cd .. && cd backend && pm2 start index.js --name 'cse'"
+    }
+}
