@@ -12,6 +12,10 @@ jobs:
                   username: ${{ secrets.USERNAME }}
                   password: ${{ secrets.PASSWORD }}
                   script: |
+                      pm2 delete cse --silent
                       cd site
                       git pull
-                      npm run start
+                      cd frontend
+                      npm run build
+                      cd ../backend
+                      pm2 start index.js --name cse

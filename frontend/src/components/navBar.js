@@ -22,11 +22,11 @@ export default function NavBar() {
             </div>
             <nav className={classes.navBar}>
                 <div className={classes.logoWrap}>
-                    <span className={classes.logo}>CSE 2022-26</span>
+                    <span className={classes.logo}>SITE TITLE</span>
                 </div>
                 {isSmallScreen ?
                     <div className={classes.items}>
-                        <span className={classes.item} style={{ marginRight: 0 }} onClick={() => setMenuOpen(!menuOpen)}>[ MENU ]</span>
+                        <span className={classes.item} style={{ marginRight: 0 }} onClick={() => setMenuOpen(!menuOpen)}>[ {menuOpen ? "CLOSE" : "MENU"} ]</span>
                     </div>
                     :
                     <div className={classes.items}>
