@@ -2,7 +2,7 @@ import classes from "./navBar.module.css";
 import CustomButton from "./customButton";
 import { useMediaQuery } from 'react-responsive';
 import { useState, useEffect } from "react";
-import TextTransition, { presets } from "react-text-transition";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const menuItemConfig = [
@@ -22,11 +22,11 @@ export default function NavBar() {
         if (menuOpen) {
             setmenuVisible(true);
             document.body.style.position = "fixed";
-            document.body.style.overflowY = "scroll";
+            // document.body.style.overflowY = "scroll";
         }
         else {
             document.body.style.position = "unset";
-            document.body.style.overflowY = "unset";
+            // document.body.style.overflowY = "unset";
             setTimeout(() => {
                 setmenuVisible(false);
             }, 300);
@@ -48,7 +48,18 @@ export default function NavBar() {
                 </div>
                 {isSmallScreen ?
                     <div className={classes.items}>
-                        <span className={classes.item} style={{ marginRight: 0 }} onClick={() => setMenuOpen(!menuOpen)}>[ <TextTransition springConfig={presets.gentle} inline>{menuOpen ? "CLOSE" : "MENU"}</TextTransition> ]</span>
+                        <span className={classes.item + " " + classes.menuTextWrap} style={{ marginRight: 0 }} onClick={() => setMenuOpen(!menuOpen)}>
+                            <AnimatePresence>
+                                <motion.span
+                                    key={menuOpen}
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    transition={{ duration: 0.5 }}
+                                    className={classes.menuText}>
+                                    {menuOpen ? "[ CLOSE ]" : "[ MENU ]"}
+                                </motion.span>
+                            </AnimatePresence></span>
                     </div>
                     :
                     <div className={classes.items}>
