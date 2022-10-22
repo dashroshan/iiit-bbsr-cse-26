@@ -35,13 +35,17 @@ export default function NavBar() {
         }
     }, [menuOpen]);
 
+    const closeMenu = () => {
+        setMenuOpen(false);
+    }
+
     return (
         <div className={classes.navBarWrap}>
             <div className={classes.menuOpen} style={{ opacity: (menuOpen && isSmallScreen) ? 1 : 0, display: menuVisible ? "" : "none" }}>
             </div>
             <nav className={classes.navBar}>
                 <div className={classes.logoWrap}>
-                    <span className={classes.logo}>SITE TITLE</span>
+                    <span className={classes.logo}><Link className={classes.routerLink} to="/">SITE TITLE</Link></span>
                 </div>
                 {isSmallScreen ?
                     <div className={classes.items}>
@@ -49,14 +53,14 @@ export default function NavBar() {
                     </div>
                     :
                     <div className={classes.items}>
-                        {menuItemConfig.map(e => <span className={classes.item}><Link className={classes.routerLink} to={e.link}>{e.name}</Link></span>)}
+                        {menuItemConfig.map(e => <Link className={classes.routerLink + " " + classes.item} to={e.link}>{e.name}</Link>)}
                         <CustomButton text={menuBtnConfig.name} link={menuBtnConfig.link} />
                     </div>
                 }
             </nav >
             <div className={classes.menuOpenBody} style={{ opacity: (menuOpen && isSmallScreen) ? 1 : 0, display: menuVisible ? "" : "none" }}>
-                {menuItemConfig.map(e => <span className={classes.item + " " + classes.openItem}><Link className={classes.routerLink} to={e.link}>{e.name}</Link></span>)}
-                <span className={classes.openItemBtn}><CustomButton text={menuBtnConfig.name} link={menuBtnConfig.link} fullWidth={true} /></span>
+                {menuItemConfig.map(e => <Link onClick={closeMenu} className={classes.routerLink + " " + classes.item + " " + classes.openItem} to={e.link}>{e.name}</Link>)}
+                <span onClick={closeMenu} className={classes.openItemBtn}><CustomButton text={menuBtnConfig.name} link={menuBtnConfig.link} fullWidth={true} /></span>
             </div>
         </div >
     );
