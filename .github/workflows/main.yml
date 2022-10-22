@@ -14,6 +14,8 @@ jobs:
                   script: |
                       pm2 delete cse --silent
                       cd site
+                      git reset --hard HEAD
+                      git clean -f -d
                       git pull
                       cd frontend
                       npm i
