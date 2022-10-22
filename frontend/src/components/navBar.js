@@ -6,14 +6,12 @@ import TextTransition, { presets } from "react-text-transition";
 import { Link } from "react-router-dom";
 
 const menuItemConfig = [
-    { name: "ITEM", link: "/link1" },
-    { name: "ITEM", link: "/link2" },
-    { name: "ITEM", link: "/link3" },
-    { name: "ITEM", link: "/link4" },
-    { name: "ITEM", link: "/link5" },
+    { name: "STUDENTS", link: "/students" },
+    { name: "SOCIETIES", link: "/socities" },
+    { name: "CREDITS", link: "/credits" },
 ];
 
-const menuBtnConfig = { name: "CLICK ME", link: "/link" };
+const menuBtnConfig = { name: "SIGN IN", link: "/experimental" };
 
 export default function NavBar() {
     const isSmallScreen = useMediaQuery({ query: '(max-width: 750px)' });
@@ -45,7 +43,7 @@ export default function NavBar() {
             </div>
             <nav className={classes.navBar}>
                 <div className={classes.logoWrap}>
-                    <span className={classes.logo}><Link className={classes.routerLink} to="/">SITE TITLE</Link></span>
+                    <span className={classes.logo}><Link className={classes.routerLink} to="/">CSE BOOTCAMP 2K22</Link></span>
                 </div>
                 {isSmallScreen ?
                     <div className={classes.items}>

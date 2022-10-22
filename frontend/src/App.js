@@ -2,14 +2,10 @@ import { Route, Routes, useLocation, Outlet } from 'react-router-dom';
 import { motion } from "framer-motion";
 
 import HomePage from './routes/homePage';
+import Experimental from './routes/experimental';
 
 import TopBinary from './components/topBinary';
 import NavBar from './components/navBar';
-
-import AngledLine from './components/angledLine';
-import EqualLoading from './components/equalLoading';
-import FuturisticLine from './components/futuristicLine';
-import ScrollingText from './components/scrollingText';
 
 const PageLayout = ({ children }) => children;
 
@@ -48,7 +44,7 @@ const AnimationLayout = () => {
     );
 };
 
-function App() {
+export default function App() {
     return (
         <div className="App">
             <TopBinary />
@@ -56,15 +52,9 @@ function App() {
             <Routes>
                 <Route element={<AnimationLayout />}>
                     <Route path="/" element={<HomePage />} />
+                    <Route path="/experimental" element={<Experimental />} />
                 </Route>
             </Routes>
-            <EqualLoading />
-            <AngledLine />
-            <FuturisticLine />
-            <ScrollingText text={["text line number 1", "text line number 2"]} forward={false} />
-            <ScrollingText text={["text line number 3", "text line number 4"]} forward={true} />
         </div>
     );
 }
-
-export default App;

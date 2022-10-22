@@ -16,6 +16,8 @@ jobs:
                       cd site
                       git pull
                       cd frontend
+                      npm i
                       npm run build
                       cd ../backend
+                      npm i
                       pm2 start index.js --name cse
