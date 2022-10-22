@@ -34,7 +34,8 @@ export default function NavBar() {
     }, [menuOpen]);
 
     const closeMenu = () => {
-        setMenuOpen(false);
+        if (isSmallScreen)
+            setMenuOpen(false);
     }
 
     return (
@@ -43,7 +44,7 @@ export default function NavBar() {
             </div>
             <nav className={classes.navBar}>
                 <div className={classes.logoWrap}>
-                    <span className={classes.logo}><Link className={classes.routerLink} to="/">CSE BOOTCAMP 2K22</Link></span>
+                    <span className={classes.logo}><Link onClick={closeMenu} className={classes.routerLink} to="/">CSE BOOTCAMP 2K22</Link></span>
                 </div>
                 {isSmallScreen ?
                     <div className={classes.items}>

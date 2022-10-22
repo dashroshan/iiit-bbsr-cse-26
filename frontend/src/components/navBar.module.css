@@ -86,4 +86,8 @@
     .navBar {
         margin: 2rem;
     }
+
+    .navBarWrap {
+        width: 100vw;
+    }
 }
