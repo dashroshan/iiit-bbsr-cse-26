@@ -40,8 +40,15 @@ export default function NavBar() {
 
     return (
         <div className={classes.navBarWrap}>
-            <div className={classes.menuOpen} style={{ opacity: (menuOpen && isSmallScreen) ? 1 : 0, display: menuVisible ? "" : "none" }}>
-            </div>
+            <AnimatePresence>
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className={classes.menuOpen} style={{ opacity: (menuOpen && isSmallScreen) ? 1 : 0, display: menuVisible ? "" : "none" }} />
+            </AnimatePresence>
+
             <nav className={classes.navBar}>
                 <div className={classes.logoWrap}>
                     <span className={classes.logo}><Link onClick={closeMenu} className={classes.routerLink} to="/">CSE BOOTCAMP 2K22</Link></span>
@@ -55,7 +62,7 @@ export default function NavBar() {
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
                                     exit={{ opacity: 0 }}
-                                    transition={{ duration: 0.5 }}
+                                    transition={{ duration: 0.3, ease: "easeOut" }}
                                     className={classes.menuText}>
                                     {menuOpen ? "[ CLOSE ]" : "[ MENU ]"}
                                 </motion.span>
