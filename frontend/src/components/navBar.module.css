@@ -20,6 +20,7 @@
 .items,
 .logoWrap {
     position: relative;
+    z-index: 3;
 }
 
 .item,
@@ -47,6 +48,7 @@
     top: 0;
     left: 0;
     transition: .3s ease-in-out;
+    z-index: 2;
 }
 
 .menuOpenBody {
