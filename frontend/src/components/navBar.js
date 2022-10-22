@@ -16,20 +16,13 @@ const menuBtnConfig = { name: "SIGN IN", link: "/experimental" };
 export default function NavBar() {
     const isSmallScreen = useMediaQuery({ query: '(max-width: 750px)' });
     const [menuOpen, setMenuOpen] = useState(false);
-    const [menuVisible, setmenuVisible] = useState(false);
 
     useEffect(() => {
         if (menuOpen) {
-            setmenuVisible(true);
             document.body.style.position = "fixed";
-            // document.body.style.overflowY = "scroll";
         }
         else {
             document.body.style.position = "unset";
-            // document.body.style.overflowY = "unset";
-            setTimeout(() => {
-                setmenuVisible(false);
-            }, 300);
         }
     }, [menuOpen]);
 
@@ -41,12 +34,12 @@ export default function NavBar() {
     return (
         <div className={classes.navBarWrap}>
             <AnimatePresence>
-                <motion.div
+                {menuOpen ? <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className={classes.menuOpen} style={{ opacity: (menuOpen && isSmallScreen) ? 1 : 0, display: menuVisible ? "" : "none" }} />
+                    transition={{ duration: 0.3, ease: "linear" }}
+                    className={classes.menuOpen} /> : null}
             </AnimatePresence>
 
             <nav className={classes.navBar}>
@@ -62,7 +55,7 @@ export default function NavBar() {
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
                                     exit={{ opacity: 0 }}
-                                    transition={{ duration: 0.3, ease: "easeOut" }}
+                                    transition={{ duration: 0.3, ease: "linear" }}
                                     className={classes.menuText}>
                                     {menuOpen ? "[ CLOSE ]" : "[ MENU ]"}
                                 </motion.span>
@@ -75,10 +68,16 @@ export default function NavBar() {
                     </div>
                 }
             </nav >
-            <div className={classes.menuOpenBody} style={{ opacity: (menuOpen && isSmallScreen) ? 1 : 0, display: menuVisible ? "" : "none" }}>
-                {menuItemConfig.map(e => <Link onClick={closeMenu} className={classes.routerLink + " " + classes.item + " " + classes.openItem} to={e.link}>{e.name}</Link>)}
-                <span onClick={closeMenu} className={classes.openItemBtn}><CustomButton text={menuBtnConfig.name} link={menuBtnConfig.link} fullWidth={true} /></span>
-            </div>
+            <AnimatePresence>
+                {menuOpen ? <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3, ease: "linear" }} className={classes.menuOpenBody}>
+                    {menuItemConfig.map(e => <Link onClick={closeMenu} className={classes.routerLink + " " + classes.item + " " + classes.openItem} to={e.link}>{e.name}</Link>)}
+                    <span onClick={closeMenu} className={classes.openItemBtn}><CustomButton text={menuBtnConfig.name} link={menuBtnConfig.link} fullWidth={true} /></span>
+                </motion.div> : null}
+            </AnimatePresence>
         </div >
     );
 }
