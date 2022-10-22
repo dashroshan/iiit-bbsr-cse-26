@@ -3,6 +3,17 @@ import CustomButton from "./customButton";
 import { useMediaQuery } from 'react-responsive';
 import { useState, useEffect } from "react";
 import TextTransition, { presets } from "react-text-transition";
+import { Link } from "react-router-dom";
+
+const menuItemConfig = [
+    { name: "ITEM", link: "/link1" },
+    { name: "ITEM", link: "/link2" },
+    { name: "ITEM", link: "/link3" },
+    { name: "ITEM", link: "/link4" },
+    { name: "ITEM", link: "/link5" },
+];
+
+const menuBtnConfig = { name: "CLICK ME", link: "/link" };
 
 export default function NavBar() {
     const isSmallScreen = useMediaQuery({ query: '(max-width: 750px)' });
@@ -38,22 +49,14 @@ export default function NavBar() {
                     </div>
                     :
                     <div className={classes.items}>
-                        <span className={classes.item}>Item</span>
-                        <span className={classes.item}>Item</span>
-                        <span className={classes.item}>Item</span>
-                        <span className={classes.item}>Item</span>
-                        <span className={classes.item}>Item</span>
-                        <CustomButton text="Click Me" link="/link" />
+                        {menuItemConfig.map(e => <span className={classes.item}><Link className={classes.routerLink} to={e.link}>{e.name}</Link></span>)}
+                        <CustomButton text={menuBtnConfig.name} link={menuBtnConfig.link} />
                     </div>
                 }
             </nav >
             <div className={classes.menuOpenBody} style={{ opacity: (menuOpen && isSmallScreen) ? 1 : 0, display: menuVisible ? "" : "none" }}>
-                <span className={classes.item + " " + classes.openItem}>Item</span>
-                <span className={classes.item + " " + classes.openItem}>Item</span>
-                <span className={classes.item + " " + classes.openItem}>Item</span>
-                <span className={classes.item + " " + classes.openItem}>Item</span>
-                <span className={classes.item + " " + classes.openItem}>Item</span>
-                <span className={classes.openItemBtn}><CustomButton text="Click Me" link="/link" fullWidth={true} /></span>
+                {menuItemConfig.map(e => <span className={classes.item + " " + classes.openItem}><Link className={classes.routerLink} to={e.link}>{e.name}</Link></span>)}
+                <span className={classes.openItemBtn}><CustomButton text={menuBtnConfig.name} link={menuBtnConfig.link} fullWidth={true} /></span>
             </div>
         </div >
     );

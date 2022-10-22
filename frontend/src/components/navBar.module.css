@@ -77,6 +77,11 @@
     margin-top: 2.5rem;
 }
 
+.routerLink {
+    color: inherit;
+    text-decoration: inherit;
+}
+
 @media screen and (max-width:750px) {
     .navBar {
         margin: 2rem;
