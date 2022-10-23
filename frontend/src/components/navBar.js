@@ -24,11 +24,11 @@ export default function NavBar() {
             try {
                 const { data: response } = await axios.get(window.APIROOT + 'api/auth/check');
                 if (response.isLoggedIn)
-                    setData({ text: "SIGN OUT", link: window.APIROOT + 'api/auth/logout' });
+                    setData({ text: "SIGN OUT", link: window.APIROOT + 'api/auth/signout' });
                 else
-                    setData({ text: "SIGN IN", link: window.APIROOT + 'api/auth/login' });
+                    setData({ text: "SIGN IN", link: window.APIROOT + 'api/auth/signin' });
             } catch (error) {
-                setData({ text: "REVERIFY", link: window.APIROOT + 'api/auth/logout' });
+                setData({ text: "REVERIFY", link: window.APIROOT + 'api/auth/signout' });
             }
             setLoading(false);
         }
@@ -82,7 +82,7 @@ export default function NavBar() {
                     </div>
                     :
                     <div className={classes.items}>
-                        {menuItemConfig.map(e => <Link className={classes.routerLink + " " + classes.item} to={e.link}>{e.name}</Link>)}
+                        {menuItemConfig.map((e, i) => <Link key={i} className={classes.routerLink + " " + classes.item} to={e.link}>{e.name}</Link>)}
                         <CustomButton text={data.text} loading={loading} link={data.link} absolute />
                     </div>
                 }
@@ -93,7 +93,7 @@ export default function NavBar() {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.3, ease: "linear" }} className={classes.menuOpenBody}>
-                    {menuItemConfig.map(e => <Link onClick={closeMenu} className={classes.routerLink + " " + classes.item + " " + classes.openItem} to={e.link}>{e.name}</Link>)}
+                    {menuItemConfig.map((e, i) => <Link key={i} onClick={closeMenu} className={classes.routerLink + " " + classes.item + " " + classes.openItem} to={e.link}>{e.name}</Link>)}
                     <span onClick={closeMenu} className={classes.openItemBtn}><CustomButton text={data.text} link={data.link} loading={loading} absolute fullWidth={true} /></span>
                 </motion.div> : null}
             </AnimatePresence>

@@ -4,7 +4,7 @@ const router = express.Router();
 
 // To be used as the login button link
 router.get(
-    "/login",
+    "/signin",
     passport.authenticate(
         "google",
         {
@@ -17,7 +17,7 @@ router.get(
 
 // Send get request to logout
 router.get(
-    "/logout",
+    "/signout",
     (req, res) => {
         req.logout();
         res.redirect(process.env.FRONTEND);
