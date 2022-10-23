@@ -10,7 +10,7 @@ export default function CreditsPage() {
             </div>
             <div className={classes.creditsText}>
                 <h1>CREDITS</h1>
-                <p>This site wouln't have been possible without the love and support of our various different teams and the entire batch of CSE 2021-25</p>
+                <p>This site wouldn't have been possible without the love and support of our various different teams and the entire batch of CSE 2021-25</p>
             </div>
             <div className={classes.teams}>
                 <div className={classes.card + " " + classes.small}>
