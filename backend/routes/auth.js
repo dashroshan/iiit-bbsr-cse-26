@@ -19,9 +19,8 @@ router.get(
 router.get(
     "/logout",
     (req, res) => {
-        const wasLoggedIn = req.isAuthenticated();
         req.logout();
-        res.send({ loggedOut: true, wasLoggedIn: wasLoggedIn });
+        res.redirect(process.env.FRONTEND);
     }
 );
 
@@ -31,16 +30,18 @@ router.get(
     (req, res) => {
         let email = "none";
         if (req.user) email = req.user.email;
-        res.send({ isLoggedIn: req.isAuthenticated(), email: email });
+        setTimeout(() => {
+            res.send({ isLoggedIn: req.isAuthenticated(), email: email });
+        }, 2000);
     }
 );
 
 // For google redirection handling
 router.get(
     "/google/callback",
-    passport.authenticate("google", { failureRedirect: `${process.env.FRONTEND}?afterLogging=true&iiitDomain=false` }),
+    passport.authenticate("google", { failureRedirect: `${process.env.FRONTEND}?loginFailed=true` }),
     (req, res) => {
-        res.redirect(`${process.env.FRONTEND}?afterLogging=true&iiitDomain=true`);
+        res.redirect(process.env.FRONTEND);
     }
 );
 

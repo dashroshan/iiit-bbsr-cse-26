@@ -4,6 +4,7 @@ import { useMediaQuery } from 'react-responsive';
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const menuItemConfig = [
     { name: "STUDENTS", link: "/students" },
@@ -11,11 +12,29 @@ const menuItemConfig = [
     { name: "CREDITS", link: "/credits" },
 ];
 
-const menuBtnConfig = { name: "SIGN IN", link: "/experimental" };
-
 export default function NavBar() {
     const isSmallScreen = useMediaQuery({ query: '(max-width: 750px)' });
     const [menuOpen, setMenuOpen] = useState(false);
+    const [loading, setLoading] = useState(true);
+    const [data, setData] = useState({ text: "", link: "" });
+
+    useEffect(() => {
+        const fetchData = async () => {
+            setLoading(true);
+            try {
+                const { data: response } = await axios.get(window.APIROOT + 'api/auth/check');
+                if (response.isLoggedIn)
+                    setData({ text: "SIGN OUT", link: window.APIROOT + 'api/auth/logout' });
+                else
+                    setData({ text: "SIGN IN", link: window.APIROOT + 'api/auth/login' });
+            } catch (error) {
+                setData({ text: "REVERIFY", link: window.APIROOT + 'api/auth/logout' });
+            }
+            setLoading(false);
+        }
+
+        fetchData();
+    }, []);
 
     useEffect(() => {
         if (menuOpen) {
@@ -64,7 +83,7 @@ export default function NavBar() {
                     :
                     <div className={classes.items}>
                         {menuItemConfig.map(e => <Link className={classes.routerLink + " " + classes.item} to={e.link}>{e.name}</Link>)}
-                        <CustomButton text={menuBtnConfig.name} link={menuBtnConfig.link} />
+                        <CustomButton text={data.text} loading={loading} link={data.link} absolute />
                     </div>
                 }
             </nav >
@@ -75,7 +94,7 @@ export default function NavBar() {
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.3, ease: "linear" }} className={classes.menuOpenBody}>
                     {menuItemConfig.map(e => <Link onClick={closeMenu} className={classes.routerLink + " " + classes.item + " " + classes.openItem} to={e.link}>{e.name}</Link>)}
-                    <span onClick={closeMenu} className={classes.openItemBtn}><CustomButton text={menuBtnConfig.name} link={menuBtnConfig.link} fullWidth={true} /></span>
+                    <span onClick={closeMenu} className={classes.openItemBtn}><CustomButton text={data.text} link={data.link} loading={loading} absolute fullWidth={true} /></span>
                 </motion.div> : null}
             </AnimatePresence>
         </div >
