@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 
 import HomePage from './routes/homePage';
 import Experimental from './routes/experimental';
+import CreditsPage from './routes/credits';
 
 import TopBinary from './components/topBinary';
 import NavBar from './components/navBar';
@@ -31,7 +32,7 @@ const AnimationLayout = () => {
     const { pathname } = useLocation();
     return (
         <PageLayout>
-            <motion.div layout
+            <motion.div
                 key={pathname}
                 initial="initial"
                 animate="in"
@@ -52,6 +53,7 @@ export default function App() {
             <Routes>
                 <Route element={<AnimationLayout />}>
                     <Route path="/" element={<HomePage />} />
+                    <Route path="/credits" element={<CreditsPage />} />
                     <Route path="/experimental" element={<Experimental />} />
                 </Route>
             </Routes>

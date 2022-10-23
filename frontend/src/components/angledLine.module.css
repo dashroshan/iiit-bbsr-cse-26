@@ -9,10 +9,12 @@
 
 .angledLineWrap {
     padding: 0 64px;
+    width: calc(100% - 128px);
 }
 
 @media (max-width: 600px) {
     .angledLineWrap {
         padding: 0 24px;
+        width: calc(100% - 48px);
     }
 }
