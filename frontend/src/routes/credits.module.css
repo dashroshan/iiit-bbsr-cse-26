@@ -5,7 +5,7 @@
 }
 
 .creditsWrap {
-    height: 70vh;
+    height: min(70vh, 100vw);
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -44,63 +44,20 @@
     margin-bottom: 7rem;
 }
 
-.heartWrap svg {
-    color: rgb(229, 225, 230);
-    animation: 0.5s steps(2) 0s infinite alternate none running heartMove;
+.heartWrap {
+    overflow: hidden;
     filter: drop-shadow(rgba(255, 215, 77, 0.6) -1px -1px 2px) drop-shadow(rgba(124, 127, 255, 0.6) 1px 1px 2px);
+    transform: scale(4);
 }
 
 .heartWrap {
-    width: 120px;
-    overflow: hidden;
-    animation: 2s ease 0s infinite normal none running heartFlicker;
-    transform: scale(4);
+    width: min(24vh, 24vw);
 }
 
 .creditsText {
     margin-top: -3rem;
     text-align: center;
     max-width: 650px;
-}
-
-@keyframes heartMove {
-    0% {
-        transform: translateX(0px);
-    }
-
-    100% {
-        transform: translateX(-240px);
-    }
-}
-
-@keyframes heartFlicker {
-    0% {
-        opacity: 1;
-    }
-
-    18% {
-        opacity: 1;
-    }
-
-    19% {
-        opacity: 0;
-    }
-
-    20% {
-        opacity: 1;
-    }
-
-    96% {
-        opacity: 1;
-    }
-
-    97% {
-        opacity: 0;
-    }
-
-    98% {
-        opacity: 1;
-    }
 }
 
 .teams {
