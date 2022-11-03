@@ -4,7 +4,8 @@ import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 
-window.APIROOT = '/'; // http://localhost:4000/';
+window.APIROOT = '/';
+// window.APIROOT = 'http://localhost:4000/';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

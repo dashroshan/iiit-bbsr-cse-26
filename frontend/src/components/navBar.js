@@ -6,29 +6,41 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-const menuItemConfig = [
+const defaultMenuConfig = [
     { name: "STUDENTS", link: "/students" },
     { name: "SOCIETIES", link: "/socities" },
-    { name: "CREDITS", link: "/credits" },
+    { name: "CREDITS", link: "/credits" }
 ];
 
 export default function NavBar() {
     const isSmallScreen = useMediaQuery({ query: '(max-width: 750px)' });
     const [menuOpen, setMenuOpen] = useState(false);
     const [loading, setLoading] = useState(true);
-    const [data, setData] = useState({ text: "", link: "" });
+    const [data, setData] = useState({ text: "", link: "", editProfile: false });
+    const [menuItemConfig, setMenuItemConfig] = useState(defaultMenuConfig);
+
+    useEffect(() => {
+        if (data.editProfile) setMenuItemConfig(
+            [
+                ...defaultMenuConfig,
+                { name: "PROFILE", link: "/profile" },
+            ]
+        );
+        else setMenuItemConfig(defaultMenuConfig);
+    }, [data])
 
     useEffect(() => {
         const fetchData = async () => {
             setLoading(true);
             try {
                 const { data: response } = await axios.get(window.APIROOT + 'api/auth/check');
+                console.log(response);
                 if (response.isLoggedIn)
-                    setData({ text: "SIGN OUT", link: window.APIROOT + 'api/auth/signout' });
+                    setData({ text: "SIGN OUT", link: window.APIROOT + 'api/auth/signout', editProfile: true });
                 else
-                    setData({ text: "SIGN IN", link: window.APIROOT + 'api/auth/signin' });
+                    setData({ text: "SIGN IN", link: window.APIROOT + 'api/auth/signin', editProfile: false });
             } catch (error) {
-                setData({ text: "REVERIFY", link: window.APIROOT + 'api/auth/signout' });
+                setData({ text: "REVERIFY", link: window.APIROOT + 'api/auth/signout', editProfile: false });
             }
             setLoading(false);
         }
