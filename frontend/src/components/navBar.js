@@ -9,7 +9,7 @@ import axios from "axios";
 const defaultMenuConfig = [
     { name: "STUDENTS", link: "/students" },
     { name: "SOCIETIES", link: "/socities" },
-    { name: "CREDITS", link: "/credits" }
+    { name: "ABOUT", link: "/about" }
 ];
 
 export default function NavBar() {

@@ -1,6 +1,8 @@
-import classes from "./credits.module.css";
+import classes from "./about.module.css";
 import { useLottie } from "lottie-react";
 import teamAnim from "../assets/team.json";
+import { useMediaQuery } from 'react-responsive';
+import CustomButton from "../components/customButton";
 
 export default function CreditsPage() {
     const options = {
@@ -9,6 +11,7 @@ export default function CreditsPage() {
     };
 
     const { View } = useLottie(options);
+    const isSmallScreen = useMediaQuery({ query: '(max-width: 750px)' });
 
     return (
         <div className={classes.creditsBody}>
@@ -64,6 +67,16 @@ export default function CreditsPage() {
                         <li>- Swoyam Sidharth Nayak</li>
                     </ul>
                 </div>
+            </div>
+            <div className={classes.creditsText + " " + classes.techStack}>
+                <h1>TECH STACK</h1>
+                <p className={classes.stackIcons}>
+                    <img src={`https://skillicons.dev/icons?i=javascript,mongodb,expressjs,react,nodejs,git,github,linux,azure,cloudflare${isSmallScreen ? '&perline=5' : ''}`} alt="Tech Stack Icons" />
+                </p>
+                <p className={classes.stackText}>
+                    This site is made using the mern stack and hosted on a linux virtual machine on microsoft azure. Cloudflare is used as the CDN. Git and Github are used for version control, ci/cd, and collaboration.
+                </p>
+                <CustomButton text="OPEN GITHUB REPOSITORY" link="https://github.com/roshan1337d/iiit-bbsr-cse-26" absolute />
             </div>
         </div>
     );
