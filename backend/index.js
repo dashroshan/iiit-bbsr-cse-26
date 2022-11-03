@@ -2,6 +2,7 @@
 const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
+const compression = require('compression');
 const dotenv = require('dotenv');
 const passport = require('passport');
 const session = require('express-session');
@@ -26,6 +27,7 @@ require('./config/passport')(passport);
 // Middleware
 app.use(cors({ credentials: true, origin: process.env.FRONTEND }));
 app.use(express.json());
+app.use(compression());
 app.use(express.urlencoded({ extended: true }));
 app.use(
     session({
