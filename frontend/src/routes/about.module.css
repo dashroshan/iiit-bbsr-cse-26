@@ -18,7 +18,7 @@
     position: absolute;
     margin: 0px auto;
     left: 0;
-    filter: brightness(0.4) sepia(1) hue-rotate(205deg) saturate(8);
+    filter: brightness(0.4) sepia(1) hue-rotate(220deg) saturate(8);
     background-image: url('../assets/grid.svg');
     opacity: 0.2;
     mask-image: radial-gradient(70% 80% at 50% 50%, black 40%, transparent 70%);
@@ -46,7 +46,7 @@
 
 .heartWrap {
     overflow: hidden;
-    filter: drop-shadow(rgba(255, 215, 77, 0.6) -1px -1px 2px) drop-shadow(rgba(124, 127, 255, 0.6) 1px 1px 2px);
+    /* filter: drop-shadow(rgba(255, 215, 77, 0.6) -1px -1px 2px) drop-shadow(rgba(124, 127, 255, 0.6) 1px 1px 2px); */
     transform: scale(4);
 }
 
