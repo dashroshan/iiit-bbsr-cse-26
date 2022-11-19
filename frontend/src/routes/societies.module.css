@@ -1,0 +1,35 @@
+.sectionWrap {
+    width: 60rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.sectionWrap>h1 {
+    margin-bottom: 1.5rem;
+}
+
+.cardsWrap {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 3rem;
+    transform: translateX(0.5rem);
+    margin-bottom: 3rem;
+}
+
+@media (max-width:1000px) {
+    .cardsWrap {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .sectionWrap {
+        width: 90vw;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width:540px) {
+    .cardsWrap {
+        row-gap: 8vw;
+        margin-bottom: 8vw;
+    }
+}

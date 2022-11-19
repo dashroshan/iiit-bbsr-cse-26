@@ -8,7 +8,7 @@ import axios from "axios";
 
 const defaultMenuConfig = [
     { name: "STUDENTS", link: "/students" },
-    { name: "SOCIETIES", link: "/socities" },
+    { name: "SOCIETIES", link: "/societies" },
     { name: "ABOUT", link: "/about" }
 ];
 
