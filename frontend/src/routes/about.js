@@ -37,6 +37,8 @@ export default function CreditsPage() {
                     <p>UI UX TEAM</p>
                     <ul>
                         <li>- Bhabani Shankar Murmu</li>
+                        <li>- Ravi Sovesh</li>
+                        <li>- Roshan Dash</li>
                         <li>- Shivakshi Singh</li>
                         <li>- Swoyam Sidharth Nayak</li>
                     </ul>
@@ -68,6 +70,7 @@ export default function CreditsPage() {
                     </ul>
                 </div>
             </div>
+            <p style={{ textAlign: "center" }}>Design inspired from Hacktobefest 2022 🤍</p>
             <div className={classes.creditsText + " " + classes.techStack}>
                 <h1>TECH STACK</h1>
                 <p className={classes.stackIcons}>

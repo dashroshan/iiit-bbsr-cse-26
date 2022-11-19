@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import HomePage from './routes/homePage';
 import Experimental from './routes/experimental';
 import AboutPage from './routes/about';
+import ProfilePage from './routes/profile';
 
 import TopBinary from './components/topBinary';
 import NavBar from './components/navBar';
@@ -72,6 +73,7 @@ export default function App() {
                 <Route element={<AnimationLayout />}>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/about" element={<AboutPage />} />
+                    <Route path="/profile" element={<ProfilePage />} />
                     <Route path="/experimental" element={<Experimental />} />
                 </Route>
             </Routes>

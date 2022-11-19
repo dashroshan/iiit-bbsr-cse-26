@@ -1,0 +1,140 @@
+.profile {
+    max-width: 82rem;
+    margin: 0 auto;
+    width: calc(100vw - 8rem);
+}
+
+.form {
+    width: calc(100% - 4rem);
+    margin: 0 auto;
+    padding: 2rem;
+    border: 2px white solid;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: rgb(255 215 77 / 60%) -1px -1px 6px, rgb(124 127 255 / 60%) 1px 1px 6px;
+}
+
+.submitWrap {
+    margin-bottom: 3rem;
+}
+
+.uploadImg {
+    width: calc(100% - 4rem);
+    padding: 2rem;
+    border: 2px white dashed;
+    cursor: pointer;
+    position: relative;
+    border-radius: 1rem;
+    box-shadow: rgb(255 215 77 / 60%) -1px -1px 6px, rgb(124 127 255 / 60%) 1px 1px 6px;
+}
+
+.inputImg {
+    background: red;
+    position: absolute;
+    cursor: pointer;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+.inputs {
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+h1 {
+    margin: 0;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    margin: 1rem auto;
+}
+
+.inputText {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+}
+
+.inputText>div:first-of-type {
+    white-space: nowrap;
+    margin: auto 0;
+}
+
+.inputText input,
+.aboutText textarea {
+    width: 100%;
+    border-radius: 0.3rem;
+    border: none;
+    box-shadow: rgb(255 215 77 / 60%) -1px -1px 6px, rgb(124 127 255 / 60%) 1px 1px 6px;
+    font-family: 'CustomFonts';
+    text-transform: uppercase;
+    color: rgb(71, 71, 71);
+    padding: 0.4rem 0.7rem;
+    resize: none;
+}
+
+.inputText input:focus,
+.aboutText textarea:focus {
+    outline: none;
+}
+
+.aboutText>div:first-of-type {
+    margin-bottom: 1rem;
+}
+
+.aboutText textarea {
+    width: calc(100% - 1.4rem);
+}
+
+@media (max-width:845px) {
+    .inputs {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .inputText {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .inputText input {
+        width: calc(100% - 1.4rem);
+    }
+
+    .top {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .profile {
+        width: calc(100vw - 2rem);
+    }
+
+    .form {
+        padding: 1.5rem;
+    }
+
+    .submitWrap {
+        display: flex;
+        justify-content: center;
+    }
+
+    .uploadImg {
+        margin: 0 auto;
+        width: calc(100% - 1rem);
+        box-sizing: border-box;
+        text-align: center;
+    }
+}

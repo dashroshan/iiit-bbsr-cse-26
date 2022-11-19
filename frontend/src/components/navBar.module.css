@@ -93,7 +93,7 @@
     text-align: right;
 }
 
-@media screen and (max-width:750px) {
+@media screen and (max-width:845px) {
     .navBar {
         margin: 2rem;
     }
