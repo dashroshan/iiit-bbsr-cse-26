@@ -61,7 +61,7 @@
 
 .front::after,
 .back:after {
-    background-image: url(https://hacktoberfest.com/_next/static/media/sparkle.57c3794f.gif);
+    background-image: url("../assets/sparkle.gif");
     background-size: cover;
     background-position: center center;
     border-radius: inherit;

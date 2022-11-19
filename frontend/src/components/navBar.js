@@ -36,11 +36,11 @@ export default function NavBar() {
                 const { data: response } = await axios.get(window.APIROOT + 'api/auth/check');
                 console.log(response);
                 if (response.isLoggedIn)
-                    setData({ text: "SIGN OUT", link: window.APIROOT + 'api/auth/signout', editProfile: true });
+                    setData({ text: "SIGN OUT", link: window.APIROOT + 'api/auth/signout', hasProfile: true });
                 else
-                    setData({ text: "SIGN IN", link: window.APIROOT + 'api/auth/signin', editProfile: false });
+                    setData({ text: "SIGN IN", link: window.APIROOT + 'api/auth/signin', hasProfile: false });
             } catch (error) {
-                setData({ text: "REVERIFY", link: window.APIROOT + 'api/auth/signout', editProfile: false });
+                setData({ text: "REVERIFY", link: window.APIROOT + 'api/auth/signout', hasProfile: false });
             }
             setLoading(false);
         }
