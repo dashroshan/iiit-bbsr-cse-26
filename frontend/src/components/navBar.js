@@ -16,11 +16,11 @@ export default function NavBar() {
     const isSmallScreen = useMediaQuery({ query: '(max-width: 845px)' });
     const [menuOpen, setMenuOpen] = useState(false);
     const [loading, setLoading] = useState(true);
-    const [data, setData] = useState({ text: "", link: "", editProfile: false });
+    const [data, setData] = useState({ text: "", link: "", hasProfile: false });
     const [menuItemConfig, setMenuItemConfig] = useState(defaultMenuConfig);
 
     useEffect(() => {
-        if (data.editProfile) setMenuItemConfig(
+        if (data.hasProfile) setMenuItemConfig(
             [
                 ...defaultMenuConfig,
                 { name: "PROFILE", link: "/profile" },

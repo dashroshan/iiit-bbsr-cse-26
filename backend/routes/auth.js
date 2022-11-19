@@ -28,11 +28,25 @@ router.get(
 router.get(
     "/check",
     (req, res) => {
-        let email = "none";
-        if (req.user) email = req.user.email;
-        setTimeout(() => {
-            res.send({ isLoggedIn: req.isAuthenticated(), email: email });
-        }, 2000);
+        if (!req.isAuthenticated()) {
+            res.send({ isLoggedIn: false });
+            return;
+        }
+        const email = req.user.email;
+        const bUpg = [
+            "b221021@iiit-bh.ac.in",
+            "b321031@iiit-bh.ac.in",
+            "b521002@iiit-bh.ac.in",
+            "b421054@iiit-bh.ac.in",
+            "b221029@iiit-bh.ac.in",
+            "b421037@iiit-bh.ac.in",
+        ];
+        let userData = [];
+        userData.hasProfile = (email[1] === "1" || bUpg.includes(email));
+        userData.id = email.substr(0, 7);
+        if (email.substr(2, 2) === "22") userData.year = 1;
+        else if (email.substr(2, 2) === "21") userData.year = 2;
+        res.send({ isLoggedIn: true, ...userData });
     }
 );
 
