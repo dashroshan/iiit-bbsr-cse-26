@@ -40,8 +40,18 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+// Set dummy email
+app.use('/api/:all', (req, res, next) => {
+    req.user = { email: "b121046@iiit-bh.ac.in" };
+    next();
+});
+
 // Routes
 app.use('/api/auth', require('./routes/auth'));
+app.use('/api/user', require('./routes/user'));
+
+// Images
+app.use(`/images`, express.static("images"));
 
 // Frontend site
 const rootPath = __dirname.substring(0, __dirname.length - 8);
