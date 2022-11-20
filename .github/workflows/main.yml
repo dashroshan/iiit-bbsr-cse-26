@@ -17,9 +17,5 @@ jobs:
             git reset --hard HEAD
             git clean -f -d
             git pull
-            cd frontend
-            npm i --force
-            npm run build
-            cd ../backend
             npm i --force
             pm2 start index.js --name cse
