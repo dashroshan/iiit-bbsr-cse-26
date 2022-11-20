@@ -57,7 +57,6 @@ export default function ProfilePage() {
             try {
                 const response = await axios.get(window.APIROOT + 'api/user/getAbout');
                 const d = response.data;
-                console.log(d);
                 setformData({
                     name: d.name,
                     city: d.city,

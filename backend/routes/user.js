@@ -2,7 +2,6 @@ const express = require("express");
 const multer = require("multer");
 const sharp = require("sharp");
 const fs = require("fs");
-const passport = require("passport");
 const router = express.Router();
 const upload = multer(multer.memoryStorage());
 const Student = require("../models/Student");
@@ -40,9 +39,16 @@ router.post(
 );
 
 router.get(
-    "/getAll",
+    "/get2021",
     async (req, res) => {
-        res.send(await Student.getAll());
+        res.send(await Student.getAll(2));
+    }
+);
+
+router.get(
+    "/get2022",
+    async (req, res) => {
+        res.send(await Student.getAll(1));
     }
 );
 
