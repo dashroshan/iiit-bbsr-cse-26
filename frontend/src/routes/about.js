@@ -64,6 +64,7 @@ export default function CreditsPage() {
                         <li>- Ravi Sovesh</li>
                         <li>- Roshan Dash</li>
                         <li>- Sangdil Biswal</li>
+                        <li>- Shivakshi Singh</li>
                         <li>- Swoyam Sidharth Nayak</li>
                     </ul>
                 </div>
