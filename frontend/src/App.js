@@ -77,7 +77,8 @@ export default function App() {
                     <Route path="/about" element={<AboutPage />} />
                     <Route path="/profile" element={<ProfilePage />} />
                     <Route path="/societies" element={<SocietiesPage />} />
-                    <Route path="/students" element={<StudentsPage />} />
+                    <Route path="/2021" element={<StudentsPage year={2} />} />
+                    <Route path="/2022" element={<StudentsPage year={1} />} />
                     <Route path="/experimental" element={<Experimental />} />
                 </Route>
             </Routes>

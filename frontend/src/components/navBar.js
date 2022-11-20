@@ -12,7 +12,7 @@ const defaultMenuConfig = [
 ];
 
 export default function NavBar() {
-    const isSmallScreen = useMediaQuery({ query: '(max-width: 845px)' });
+    const isSmallScreen = useMediaQuery({ query: '(max-width: 875px)' });
     const [menuOpen, setMenuOpen] = useState(false);
     const [loading, setLoading] = useState(true);
     const [data, setData] = useState({ text: "", link: "", hasProfile: false, isLoggedIn: false });
@@ -21,7 +21,10 @@ export default function NavBar() {
     useEffect(() => {
         let menuData = [...defaultMenuConfig];
         if (data.hasProfile) menuData.push({ name: "PROFILE", link: "/profile" });
-        if (data.isLoggedIn) menuData.unshift({ name: "STUDENTS", link: "/students" })
+        if (data.isLoggedIn) {
+            menuData.unshift({ name: "2022", link: "/2022" });
+            menuData.unshift({ name: "2021", link: "/2021" });
+        }
         setMenuItemConfig(menuData);
     }, [data]);
 
