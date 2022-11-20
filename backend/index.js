@@ -41,10 +41,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Set dummy email
-// app.use('/api/:all', (req, res, next) => {
-//     req.user = { email: "b121046@iiit-bh.ac.in" };
-//     next();
-// });
+app.use('/api/:all', (req, res, next) => {
+    req.user = { email: "b121046@iiit-bh.ac.in" };
+    next();
+});
 
 // Check authentication for user endpoints
 app.use('/api/user/:all', (req, res, next) => {

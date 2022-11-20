@@ -51,3 +51,16 @@ module.exports.getAbout = async function (email) {
     if (Student == null) return { exist: false };
     return { exist: true, ...Student._doc }
 }
+
+module.exports.getAll = async function () {
+    const Students = await StudentSchema.find({ imageSet: true, dataSet: true });
+    let yr1 = [];
+    let yr2 = [];
+    for (let s of Students) {
+        if (s.year === 1) yr1.push(s);
+        else yr2.push(s);
+    }
+    yr1.sort((a, b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0));
+    yr2.sort((a, b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0));
+    return ({ 2022: yr1, 2021: yr2 });
+}

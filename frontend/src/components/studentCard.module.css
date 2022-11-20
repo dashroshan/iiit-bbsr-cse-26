@@ -240,7 +240,7 @@
     margin: 0;
 }
 
-@media (max-width:405px) {
+@media (max-width:435px) {
     :root {
         --card-width: 80vw;
     }

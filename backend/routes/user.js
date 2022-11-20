@@ -39,4 +39,11 @@ router.post(
     }
 );
 
+router.get(
+    "/getAll",
+    async (req, res) => {
+        res.send(await Student.getAll());
+    }
+);
+
 module.exports = router;
