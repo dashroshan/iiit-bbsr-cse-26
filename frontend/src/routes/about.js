@@ -3,6 +3,8 @@ import { useLottie } from "lottie-react";
 import teamAnim from "../assets/team.json";
 import { useMediaQuery } from 'react-responsive';
 import CustomButton from "../components/customButton";
+import stackDesktop from "../assets/stackdesktop.svg";
+import stackMobile from "../assets/stackmobile.svg";
 
 export default function CreditsPage() {
     const options = {
@@ -34,13 +36,12 @@ export default function CreditsPage() {
                     </ul>
                 </div>
                 <div className={classes.card + " " + classes.small}>
-                    <p>UI UX TEAM</p>
+                    <p>WEB DEV TEAM</p>
                     <ul>
-                        <li>- Bhabani Shankar Murmu</li>
-                        <li>- Ravi Sovesh</li>
+                        <li>- Kirti Padhi</li>
+                        <li>- Naisargika Subudhi</li>
                         <li>- Roshan Dash</li>
-                        <li>- Shivakshi Singh</li>
-                        <li>- Swoyam Sidharth Nayak</li>
+                        <li>- Sneha Mandal</li>
                     </ul>
                 </div>
                 <div className={classes.card}>
@@ -57,15 +58,12 @@ export default function CreditsPage() {
                     </ul>
                 </div>
                 <div className={classes.card}>
-                    <p>WEB DEV TEAM</p>
+                    <p>UI UX TEAM</p>
                     <ul>
-                        <li>- Aman Gupta</li>
-                        <li>- Kirti Padhi</li>
-                        <li>- Naisargika Subudhi</li>
-                        <li>- Prateek Tripathy</li>
+                        <li>- Bhabani Shankar Murmu</li>
+                        <li>- Ravi Sovesh</li>
                         <li>- Roshan Dash</li>
-                        <li>- Shivakshi Singh</li>
-                        <li>- Sneha Mandal</li>
+                        <li>- Sangdil Biswal</li>
                         <li>- Swoyam Sidharth Nayak</li>
                     </ul>
                 </div>
@@ -74,7 +72,7 @@ export default function CreditsPage() {
             <div className={classes.creditsText + " " + classes.techStack}>
                 <h1>TECH STACK</h1>
                 <p className={classes.stackIcons}>
-                    <img src={`https://skillicons.dev/icons?i=javascript,mongodb,expressjs,react,nodejs,git,github,linux,azure,cloudflare${isSmallScreen ? '&perline=5' : ''}`} alt="Tech Stack Icons" />
+                    <img src={isSmallScreen ? stackMobile : stackDesktop} alt="Tech Stack Icons" />
                 </p>
                 <p className={classes.stackText}>
                     This site is made using the mern stack and hosted on a linux virtual machine on microsoft azure. Cloudflare is used as the CDN. Git and Github are used for version control, ci/cd, and collaboration.

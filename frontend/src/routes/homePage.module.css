@@ -1,5 +1,9 @@
+.homePage {
+    margin-bottom: 2.5rem;
+}
+
 .helloWrap {
-    height: 70vh;
+    height: min(70vh, 80vw);
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -36,4 +40,42 @@
 
 p {
     margin: 0 1rem;
+}
+
+.video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4rem 0;
+    margin-bottom: 4.5rem;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.video p {
+    text-align: center;
+}
+
+.video iframe {
+    width: 888px;
+    height: 500px;
+    border-radius: 1rem;
+    border: 2px solid white;
+    box-shadow: 0 0 0.5rem white;
+}
+
+.heartWrap {
+    overflow: hidden;
+    scale: 4;
+}
+
+.heartWrap {
+    width: min(24vh, 24vw);
+}
+
+@media (max-width:930px) {
+    .video iframe {
+        width: 90vw;
+        height: calc(90vw * 0.5625);
+    }
 }

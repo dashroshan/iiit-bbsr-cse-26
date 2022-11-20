@@ -16,7 +16,7 @@ router.post("/image", upload.single("image"), async (req, res) => {
     const userId = req.user.email.substr(0, 7);
     const fileName = `${userId}.webp`;
     await sharp(buffer)
-        .resize({ height: 500, width: 500 })
+        .resize({ height: 400, width: 320 })
         .webp({ quality: 100 })
         .toFile(`./${uploadDir}/${fileName}`);
     await Student.setImage(req.user.email);
