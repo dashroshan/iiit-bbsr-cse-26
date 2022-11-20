@@ -12,6 +12,7 @@ const StudentSchema = mongoose.model("student", new mongoose.Schema({
     id: String,
     imageSet: Boolean,
     dataSet: Boolean,
+    year: Number,
 }));
 
 module.exports.setImage = async function (email) {
@@ -28,11 +29,15 @@ module.exports.setImage = async function (email) {
 }
 
 module.exports.setAbout = async function (email, about) {
+    let year;
+    if (email.substr(2, 2) === "22") year = 1;
+    else if (email.substr(2, 2) === "21") year = 2;
     const Student = await StudentSchema.findOneAndUpdate(
         { email: email },
         {
             dataSet: true,
             ...about,
+            year: year,
             $setOnInsert: {
                 imageSet: false,
             }

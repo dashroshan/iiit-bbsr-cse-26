@@ -42,7 +42,7 @@ router.get(
             "b421037@iiit-bh.ac.in",
         ];
         let userData = [];
-        userData.hasProfile = (email[1] === "1" || bUpg.includes(email));
+        userData.hasProfile = ((email[1] === "1" || bUpg.includes(email)) && ((email.substr(2, 2) === "22") || (email.substr(2, 2) === "21")));
         userData.id = email.substr(0, 7);
         if (email.substr(2, 2) === "22") userData.year = 1;
         else if (email.substr(2, 2) === "21") userData.year = 2;

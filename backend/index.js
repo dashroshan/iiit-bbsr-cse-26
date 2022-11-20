@@ -48,7 +48,20 @@ app.use(passport.session());
 
 // Check authentication for user endpoints
 app.use('/api/user/:all', (req, res, next) => {
-    if (req.isAuthenticated()) next();
+    const bUpg = [
+        "b221021@iiit-bh.ac.in",
+        "b321031@iiit-bh.ac.in",
+        "b521002@iiit-bh.ac.in",
+        "b421054@iiit-bh.ac.in",
+        "b221029@iiit-bh.ac.in",
+        "b421037@iiit-bh.ac.in",
+    ];
+    if (req.isAuthenticated()) {
+        const email = req.user.email;
+        const hasProfile = ((email[1] === "1" || bUpg.includes(email)) && ((email.substr(2, 2) === "22") || (email.substr(2, 2) === "21")));
+        if (hasProfile) next();
+        else res.sendStatus(401);
+    }
     else res.sendStatus(401);
 })
 
