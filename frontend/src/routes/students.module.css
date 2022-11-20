@@ -1,0 +1,15 @@
+.cards {
+    width: 100%;
+    max-width: 82rem;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 3rem;
+    height: 100vh
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -7,6 +7,7 @@ import Experimental from './routes/experimental';
 import AboutPage from './routes/about';
 import ProfilePage from './routes/profile';
 import SocietiesPage from './routes/societies';
+import StudentsPage from './routes/students';
 
 import TopBinary from './components/topBinary';
 import NavBar from './components/navBar';
@@ -76,6 +77,7 @@ export default function App() {
                     <Route path="/about" element={<AboutPage />} />
                     <Route path="/profile" element={<ProfilePage />} />
                     <Route path="/societies" element={<SocietiesPage />} />
+                    <Route path="/students" element={<StudentsPage />} />
                     <Route path="/experimental" element={<Experimental />} />
                 </Route>
             </Routes>

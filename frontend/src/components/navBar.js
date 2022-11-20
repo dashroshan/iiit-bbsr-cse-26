@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 const defaultMenuConfig = [
-    { name: "STUDENTS", link: "/students" },
     { name: "SOCIETIES", link: "/societies" },
     { name: "ABOUT", link: "/about" }
 ];
@@ -16,18 +15,15 @@ export default function NavBar() {
     const isSmallScreen = useMediaQuery({ query: '(max-width: 845px)' });
     const [menuOpen, setMenuOpen] = useState(false);
     const [loading, setLoading] = useState(true);
-    const [data, setData] = useState({ text: "", link: "", hasProfile: false });
+    const [data, setData] = useState({ text: "", link: "", hasProfile: false, isLoggedIn: false });
     const [menuItemConfig, setMenuItemConfig] = useState(defaultMenuConfig);
 
     useEffect(() => {
-        if (data.hasProfile) setMenuItemConfig(
-            [
-                ...defaultMenuConfig,
-                { name: "PROFILE", link: "/profile" },
-            ]
-        );
-        else setMenuItemConfig(defaultMenuConfig);
-    }, [data])
+        let menuData = [...defaultMenuConfig];
+        if (data.hasProfile) menuData.push({ name: "PROFILE", link: "/profile" });
+        if (data.isLoggedIn) menuData.unshift({ name: "STUDENTS", link: "/students" })
+        setMenuItemConfig(menuData);
+    }, [data]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -35,11 +31,11 @@ export default function NavBar() {
             try {
                 const { data: response } = await axios.get(window.APIROOT + 'api/auth/check');
                 if (response.isLoggedIn)
-                    setData({ text: "SIGN OUT", link: window.APIROOT + 'api/auth/signout', hasProfile: true });
+                    setData({ text: "SIGN OUT", link: window.APIROOT + 'api/auth/signout', hasProfile: true, isLoggedIn: true });
                 else
-                    setData({ text: "SIGN IN", link: window.APIROOT + 'api/auth/signin', hasProfile: false });
+                    setData({ text: "SIGN IN", link: window.APIROOT + 'api/auth/signin', hasProfile: false, isLoggedIn: false });
             } catch (error) {
-                setData({ text: "REVERIFY", link: window.APIROOT + 'api/auth/signout', hasProfile: false });
+                setData({ text: "REVERIFY", link: window.APIROOT + 'api/auth/signout', hasProfile: false, isLoggedIn: false });
             }
             setLoading(false);
         }

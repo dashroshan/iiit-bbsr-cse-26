@@ -6,8 +6,8 @@ import { BrowserRouter } from 'react-router-dom';
 import { transitions, positions, Provider as AlertProvider } from 'react-alert';
 import AlertTemplate from "./components/alert";
 
-window.APIROOT = '/';
-// window.APIROOT = 'http://localhost:4000/';
+// window.APIROOT = '/';
+window.APIROOT = 'http://localhost:4000/';
 
 const options = {
     position: positions.TOP_CENTER,
