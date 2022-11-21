@@ -85,7 +85,7 @@ export default function SocietiesPage() {
                         about="Entrepreneurship Cell is one of the most active cells for all the young minds who like to innovate and think dynamically. The main aim is to promote the entrepreneurship spirit. It conducts event which not only widens your spectrum but also develop you as an individual like the E-week, Funding Den, and frequent webinars by experienced mentors. D3-the Techno-management week was conducted in collaboration with Tech-Society recently."
                     />
                     <SocietyCard
-                        name="KRIDA"
+                        name="Sports Society"
                         link="https://instagram.com/iiitbh_sports"
                         img={krida}
                         about="The official sports society of IIIT-Bh helps you maintain physical health and considers it to be man's greatest wealth. It provides great opportunity to interact with large number of people. It organises sports events like cricket, football, basketball intra championship and gives opportunity to represent the college in tournaments held in various IITs and NITs."
