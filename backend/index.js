@@ -65,9 +65,16 @@ app.use('/api/user/:all', (req, res, next) => {
     else res.sendStatus(401);
 })
 
+// Check authentication for data endpoints
+app.use('/api/data/:all', (req, res, next) => {
+    if (req.isAuthenticated()) next();
+    else res.sendStatus(401);
+})
+
 // Routes
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/user', require('./routes/user'));
+app.use('/api/data', require('./routes/data'));
 
 // Images
 app.use(`/images`, express.static("images"));

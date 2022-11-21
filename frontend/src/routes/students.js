@@ -11,7 +11,7 @@ export default function StudentsPage(props) {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(window.APIROOT + ((props.year === 1) ? 'api/user/get2022' : 'api/user/get2021'));
+                const response = await axios.get(window.APIROOT + ((props.year === 1) ? 'api/data/get2022' : 'api/data/get2021'));
                 setData(response.data);
             } catch (error) {
                 alert.error("Failed to retrive students");
