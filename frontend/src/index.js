@@ -12,9 +12,9 @@ window.APIROOT = '/';
 const options = {
     position: positions.TOP_CENTER,
     timeout: 5000,
-    offset: '10px',
+    offset: '30px',
     transition: transitions.SCALE,
-    containerStyle: { textShadow: "none" }
+    containerStyle: { textShadow: "none", zIndex: 999 }
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
