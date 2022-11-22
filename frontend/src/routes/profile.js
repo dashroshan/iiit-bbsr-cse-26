@@ -4,9 +4,11 @@ import EqualLoading from "../components/equalLoading";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useAlert } from 'react-alert';
+import { Navigate } from "react-router-dom";
 
 export default function ProfilePage() {
     const alert = useAlert();
+    const [isError, setIsError] = useState(false);
     const [formData, setformData] = useState({ name: "", city: "", state: "", about: "", github: "", linkedin: "", instagram: "" });
     const [imgUploading, setImgUploading] = useState(0);
     const [aboutUpdating, setaboutUpdating] = useState(false);
@@ -67,7 +69,8 @@ export default function ProfilePage() {
                     instagram: d.instagram
                 });
             } catch (error) {
-                alert.error("Failed to retrive profile");
+                alert.error("You need to be online and logged in to view this page");
+                setIsError(true);
             }
         }
         fetchData();
@@ -75,6 +78,7 @@ export default function ProfilePage() {
 
     return (
         <div className={classes.profile}>
+            {isError ? <Navigate to="/" replace={true} /> : null}
             <div className={classes.top}>
                 <h1>EDIT IMAGE</h1>
             </div>

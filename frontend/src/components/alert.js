@@ -14,7 +14,8 @@ const alertStyle = {
     alignItems: 'center',
     border: '2.5px solid #170F1E',
     borderRadius: '0.7rem',
-    width: '300px',
+    width: 'min(500px, 90vw)',
+    transform: 'translateY(5rem)',
     boxSizing: 'border-box',
 }
 
