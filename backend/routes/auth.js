@@ -1,6 +1,7 @@
 const express = require("express");
 const passport = require("passport");
 const router = express.Router();
+const blocked = require('../blocked');
 
 // To be used as the login button link
 router.get(
@@ -41,11 +42,12 @@ router.get(
             "b221029@iiit-bh.ac.in",
             "b421037@iiit-bh.ac.in",
         ];
-        let userData = [];
+        let userData = {};
         userData.hasProfile = ((email[1] === "1" || bUpg.includes(email)) && ((email.substr(2, 2) === "22") || (email.substr(2, 2) === "21")));
         userData.id = email.substr(0, 7);
         if (email.substr(2, 2) === "22") userData.year = 1;
         else if (email.substr(2, 2) === "21") userData.year = 2;
+        if (blocked[req.user.email]) userData.blocked = blocked[req.user.email].login;
         res.send({ isLoggedIn: true, ...userData });
     }
 );

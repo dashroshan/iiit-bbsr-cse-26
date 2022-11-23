@@ -7,6 +7,7 @@ const dotenv = require('dotenv');
 const passport = require('passport');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
+const blocked = require('./blocked');
 
 // Initialize express app
 var app = express();
@@ -73,10 +74,7 @@ app.use('/api/data/:all', (req, res, next) => {
 
 // Block profile edits access XD
 app.use('/api/user/:qPath', (req, res, next) => {
-    const blocked = {
-        "b122041@iiit-bh.ac.in": "Your edit access has been blocked! Seniors will never gonna give you up.. never gonna let you down 🎵🎶",
-    };
-    if ((req.params.qPath === "image" || req.params.qPath === "setAbout") && blocked[req.user.email]) res.send({ blocked: blocked[req.user.email] });
+    if ((req.params.qPath === "image" || req.params.qPath === "setAbout") && blocked[req.user.email]) res.send({ blocked: blocked[req.user.email].edit });
     else next();
 })
 

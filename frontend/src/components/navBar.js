@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { useAlert } from 'react-alert';
 
 const defaultMenuConfig = [
     { name: "SOCIETIES", link: "/societies" },
@@ -12,6 +13,7 @@ const defaultMenuConfig = [
 ];
 
 export default function NavBar() {
+    const alert = useAlert();
     const isSmallScreen = useMediaQuery({ query: '(max-width: 875px)' });
     const [menuOpen, setMenuOpen] = useState(false);
     const [loading, setLoading] = useState(true);
@@ -33,6 +35,7 @@ export default function NavBar() {
             setLoading(true);
             try {
                 const { data: response } = await axios.get(window.APIROOT + 'api/auth/check');
+                if (response.blocked) alert.show(response.blocked, { timeout: 10000 });
                 if (response.isLoggedIn)
                     setData({ text: "SIGN OUT", link: window.APIROOT + 'api/auth/signout', hasProfile: response.hasProfile, isLoggedIn: true });
                 else
