@@ -71,6 +71,15 @@ app.use('/api/data/:all', (req, res, next) => {
     else res.sendStatus(401);
 })
 
+// Block profile edits access XD
+app.use('/api/user/:qPath', (req, res, next) => {
+    const blocked = {
+        "b122041@iiit-bh.ac.in": "Your edit access has been blocked! Seniors will never gonna give you up.. never gonna let you down 🎵🎶",
+    };
+    if ((req.params.qPath === "image" || req.params.qPath === "setAbout") && blocked[req.user.email]) res.send({ blocked: blocked[req.user.email] });
+    else next();
+})
+
 // Routes
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/user', require('./routes/user'));

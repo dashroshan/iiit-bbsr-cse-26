@@ -32,7 +32,8 @@ export default function ProfilePage() {
         const data = new FormData();
         data.append("image", e.target.files[0]);
         try {
-            await axios.post(window.APIROOT + 'api/user/image', data);
+            const res = await axios.post(window.APIROOT + 'api/user/image', data);
+            if (res.data.blocked) alert.error(res.data.blocked);
             setImgUploading(2);
         } catch (error) {
             setImgUploading(3);
@@ -46,8 +47,9 @@ export default function ProfilePage() {
         }
         setaboutUpdating(true);
         try {
-            await axios.post(window.APIROOT + 'api/user/setAbout', formData);
-            alert.success("Changed saved successfully");
+            const res = await axios.post(window.APIROOT + 'api/user/setAbout', formData);
+            if (res.data.blocked) alert.error(res.data.blocked);
+            else alert.success("Changed saved successfully");
         } catch (error) {
             alert.error("Failed to save changes");
         }
