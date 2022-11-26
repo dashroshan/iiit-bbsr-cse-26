@@ -12,11 +12,11 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           script: |
-            pm2 delete cse --silent
-            cd site
+            pm2 delete cse26 --silent
+            cd cse26
             git reset --hard HEAD
             git clean -f -d
             git pull
             cd backend
             npm i --force
-            pm2 start index.js --name cse
+            pm2 start index.js --name cse26
