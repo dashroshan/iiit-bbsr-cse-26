@@ -47,6 +47,17 @@ app.use(passport.session());
 //     next();
 // });
 
+// Check authentication for data endpoints
+app.use('/api/:all', (req, res, next) => {
+    if (req.isAuthenticated()) {
+        const email = req.user.email;
+        if (email.substr(2, 2) === "22") res.sendStatus(401);
+        else next();
+    }
+    else res.sendStatus(401);
+})
+
+
 // Check authentication for user endpoints
 app.use('/api/user/:all', (req, res, next) => {
     const bUpg = [
