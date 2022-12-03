@@ -41,7 +41,8 @@ module.exports = {
         editBlocked: false
     },
     "b121046@iiit-bh.ac.in": {
-        login: "Test login message",
-        editBlocked: false
+        login: "All hail the light, the dark, and the grey 😎",
+        edit: "The about is forever, brother, hail, and farewell ✨",
+        editBlocked: true
     },
 }
