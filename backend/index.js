@@ -41,21 +41,8 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Set dummy email
-// app.use('/api/:all', (req, res, next) => {
-//     req.user = { email: "b121046@iiit-bh.ac.in" };
-//     next();
-// });
-
 // Check authentication for user endpoints
 app.use('/api/user/:all', (req, res, next) => {
-    if (req.isAuthenticated()) {
-        if (req.user.email.substr(2, 2) === "22") {
-            req.logout();
-            res.redirect(process.env.FRONTEND);
-            return;
-        }
-    }
     const bUpg = [
         "b221021@iiit-bh.ac.in",
         "b321031@iiit-bh.ac.in",
@@ -75,13 +62,6 @@ app.use('/api/user/:all', (req, res, next) => {
 
 // Check authentication for data endpoints
 app.use('/api/data/:all', (req, res, next) => {
-    if (req.isAuthenticated()) {
-        if (req.user.email.substr(2, 2) === "22") {
-            req.logout();
-            res.redirect(process.env.FRONTEND);
-            return;
-        }
-    }
     if (req.isAuthenticated()) next();
     else res.sendStatus(401);
 })
