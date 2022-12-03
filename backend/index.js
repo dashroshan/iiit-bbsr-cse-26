@@ -68,7 +68,10 @@ app.use('/api/data/:all', (req, res, next) => {
 
 // Block profile edits access XD
 app.use('/api/user/:qPath', (req, res, next) => {
-    if ((req.params.qPath === "image" || req.params.qPath === "setAbout") && blocked[req.user.email]) res.send({ blocked: blocked[req.user.email].edit });
+    if ((req.params.qPath === "image" || req.params.qPath === "setAbout") && blocked[req.user.email]) {
+        if (blocked[req.user.email].editBlocked) res.send({ blocked: blocked[req.user.email].edit });
+        else next();
+    }
     else next();
 })
 
