@@ -28,16 +28,8 @@ module.exports = {
         login: "Apne chan khyan nikal ke apne baare mai do labz likh dete to acha rhta ",
         editBlocked: false
     },
-    "b122102@iiit-bh.ac.in": {
-        login: "Tera bio to suru hone se phle hi khatam hogya...",
-        editBlocked: false
-    },
     "b122132@iiit-bh.ac.in": {
         login: "Ye iiit 'bhuvneshwar' kahan likha hai? 😂",
-        editBlocked: false
-    },
-    "b122139@iiit-bh.ac.in": {
-        login: "Tera bio to suru hone se phle hi khatam hogya...",
         editBlocked: false
     },
     "b121046@iiit-bh.ac.in": {
