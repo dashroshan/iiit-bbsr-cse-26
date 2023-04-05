@@ -9,7 +9,6 @@ import { useAlert } from 'react-alert';
 
 const defaultMenuConfig = [
     { name: "SOCIETIES", link: "/societies" },
-    { name: "ABOUT", link: "/about" }
 ];
 
 export default function NavBar() {
