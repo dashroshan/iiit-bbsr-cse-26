@@ -18,7 +18,7 @@ module.exports = {
     "b122041@iiit-bh.ac.in": {
         edit: "Your profile edits have been locked! Fill up this form to acknowledge and reaccess: https://r.mtdv.me/csebootcamp",
         login: "Seniors will never gonna give you up.. never gonna let you down 🎵🎶",
-        editBlocked: true
+        editBlocked: false
     },
     "b122048@iiit-bh.ac.in": {
         login: "#ye #twitter #nhi #hai",
